@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 feature 'Editing posts' do
+  before(:each) do
+    create_user_and_log_in
+  end
   background do
     post = create(:post)
 

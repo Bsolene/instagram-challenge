@@ -1,6 +1,11 @@
 require 'rails_helper.rb'
+include Warden::Test::Helpers
+Warden.test_mode!
 
 feature 'Creating posts' do
+  before(:each) do
+    create_user_and_log_in
+  end
   scenario 'can create a post' do
     visit '/'
     click_link 'New Post'

@@ -1,10 +1,15 @@
 require 'rails_helper'
 
-RSpec.feature "Creating comments", type: :feature do
-  before(:each) do
-   post = create(:post)
-  end
 
+feature "Creating comments" do
+  before(:each) do
+    create_user_and_log_in
+  end
+  background do
+    post = create(:post, caption: 'Abs for days.')
+    visit '/'
+    find(:xpath, "//a[contains(@href,'posts/1')]").click
+  end
   scenario "Adding comments to a post" do
     visit '/'
 
