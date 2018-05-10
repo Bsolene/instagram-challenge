@@ -28,6 +28,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post updated"
 +     redirect_to(post_path(@post))
     else
+      flash[:alert] = "Something is wrong with your form!"
       render "edit"
     end
   end
