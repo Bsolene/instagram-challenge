@@ -24,7 +24,7 @@ RSpec.describe PostsController, type: :controller do
   end
   
   describe "POST #create" do
-    it "creates a new Item" do
+    it "creates a new Post" do
       expect{ create(:post) }.to change(Post,:count).by(1)
     end
   end
