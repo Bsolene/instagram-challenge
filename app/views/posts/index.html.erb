@@ -7,8 +7,10 @@
 <% @posts.each do |post| %>
   <%= link_to(post_path(post)) do %>
     <div class="post">
-      <%= image_tag(post.image) %>
+      <%= image_tag(post.image.url(:medium)) %>
       <%= post.caption %>
     </div>
   <% end %>
 <% end %>
+
+<%= link_to 'OUT', destroy_user_session_path, method: :delete %>

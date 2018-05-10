@@ -3,7 +3,7 @@
 
 <%= @post.caption %>
 
-<%= image_tag(@post.image) %>
+<%= image_tag(@post.image.url(:medium)) %>
 
 <% @post.comments.each do |comment| %>
   <%= comment.comment %>
