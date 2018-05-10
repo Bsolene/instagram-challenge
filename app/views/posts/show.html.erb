@@ -4,4 +4,8 @@
 <%= @post.caption %>
 
 <%= image_tag(@post.image) %>
+
+<%= link_to "Edit", edit_post_path(@post) %>
+
+<%= link_to "Back home", posts_path %>
     
