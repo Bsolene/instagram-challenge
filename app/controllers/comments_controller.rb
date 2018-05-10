@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       redirect_to post_path(@post)
     else
       flash[:alert] = "You need a text to comment here!"
-      render :new
+      render 'posts/show'
     end
   end
 
