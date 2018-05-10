@@ -33,6 +33,7 @@ gem 'rubocop', '0.48.1'
 gem 'rubocop-rails'
 gem 'simple_form'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -47,6 +48,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
+  gem 'coverband'
 
 end
 
