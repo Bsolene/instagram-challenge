@@ -61,4 +61,14 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to be_redirect
     end
   end
+
+  describe "DELETE #destroy" do
+    it "deletes the post and redirects" do
+      post = create(:post)
+      expect{ 
+        delete :destroy, params: { id: post }
+      }.to change(Post, :count).by(-1)
+      expect(response).to be_redirect
+    end
+  end
 end

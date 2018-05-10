@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_params, only: [:show, :edit, :update]
+  before_action :find_params, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -31,6 +31,12 @@ class PostsController < ApplicationController
       flash[:alert] = "Something is wrong with your form!"
       render "edit"
     end
+  end
+
+  def destroy
+    @post.destroy
+    flash[:success] = "Your post has been succesfully deleted"
+    redirect_to posts_path
   end
 
   private
