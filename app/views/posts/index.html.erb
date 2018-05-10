@@ -1,0 +1,14 @@
+<h1>Instagram</h1>
+
+
+<%= link_to "New Post", new_post_path %>
+
+
+<% @posts.each do |post| %>
+  <%= link_to(post_path(post)) do %>
+    <div class="post">
+      <%= image_tag(post.image) %>
+      <%= post.caption %>
+    </div>
+  <% end %>
+<% end %>
