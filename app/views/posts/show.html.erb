@@ -1,19 +1,31 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
 
-<%= @post.caption %>
+    <%= link_to "Back home", posts_path %>
 
-<%= image_tag(@post.image.url(:medium)) %>
-
-<% @post.comments.each do |comment| %>
-  <%= comment.comment %>
-<% end %>
-
-<%= link_to "Edit Post", edit_post_path(@post) %>
-
-<%= link_to "Delete Post", post_path(@post), method: :delete %>
-
-<%= link_to "Back home", posts_path %>
-
-<%= render 'comments/form' %>
-    
+<div class="wrapper">
+  <div class="post-card">
+    <div class="post-card-user">
+      <%= current_user.email %>
+      <%= link_to post_path(@post), method: :delete, class: "post-delete" do %>
+        <i class="far fa-times-circle"></i>
+      <% end %>
+    </div>
+    <div class="post-card-image">
+      <%= image_tag(@post.image.url(:medium)) %>
+    </div>
+    <div class="post-card-caption">
+      <span class="post-card-caption-user"><%= current_user.email %></span>
+      <%= @post.caption %>
+      <%= link_to edit_post_path(@post), class: "post-edit" do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+    </div>
+    <ul class="comment-list" id="comments">
+      <% @post.comments.each do |comment| %>
+        <%= render 'comments/show', comment: comment %>
+      <% end %>
+    </ul>
+    <div class="wrapperCommentForm">
+      <%= render 'comments/form', post: @post, comment: @comment %>
+    </div>
+  </div>
+</div>

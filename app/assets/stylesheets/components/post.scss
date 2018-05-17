@@ -1,0 +1,43 @@
+.post-card {
+  margin: 10px 10px 40px 10px;
+  border: 0.5px solid rgba($gray, 0.1);
+  background-color: $white;
+  border-radius: 3px;
+
+  .post-card-user {
+    font-weight: 600;
+    padding: 20px 15px;
+    border-bottom: 0.5px solid rgba($gray, 0.1);
+    position: relative;
+
+      .post-delete {
+        position: absolute;
+        right: -7px;
+        top: -10px;
+        text-decoration: none;
+        color: $medium-gray;
+
+        &:hover {
+          color: $gray;
+        }
+      }
+  }
+
+  .post-card-caption {
+    margin: 10px 15px;
+    position: relative;
+
+    .post-card-caption-user {
+      font-weight: 600;
+    }
+
+    .post-edit {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      text-decoration: none;
+      color: $medium-gray;
+    }
+  }
+
+}

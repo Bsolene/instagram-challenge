@@ -1,4 +1,6 @@
-<%= simple_form_for [@post, @comment] do |form| %>
-    <%= form.input :comment %>
-    <%= form.button :submit %>
+
+<%= simple_form_for [post, comment], remote: true,  html: { class: "comment-form" } do |form| %>
+    <textarea class="comment-form-input" name="comment[comment]" id="comment_comment" placeholder="Leave a comment..."></textarea>
+    <button type="submit" name="commit" class="comment-form-submit" data-disable-with="Create comment">Publish</button>
+    <%# form.button :submit %>
 <% end %>

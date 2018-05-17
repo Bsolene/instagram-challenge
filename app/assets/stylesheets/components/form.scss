@@ -22,3 +22,27 @@
     margin: 20px 0;
   }
 }
+.wrapperCommentForm {
+  border-top: 1px solid #efefef;
+
+  .comment-form {
+    display: flex;
+
+    .comment-form-input {
+      border: 0;
+      resize: none;
+      flex-grow: 1;
+      height: 22px;
+      font-size: 14px;
+      outline: none;
+      margin: 15px;
+    }
+
+    .comment-form-submit {
+      border: 0;
+      font-size: 14px;
+      color: $blue;
+      margin-right: 15px;
+    }
+  }
+}
