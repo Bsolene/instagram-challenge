@@ -5,7 +5,7 @@
   <div class="post-card">
     <div class="post-card-user">
       <%= current_user.email %>
-      <%= link_to post_path(@post), method: :delete, class: "post-delete" do %>
+      <%= link_to post_path(@post), method: :delete, class: "post-delete", id: "delete_post" do %>
         <i class="far fa-times-circle"></i>
       <% end %>
     </div>
@@ -15,7 +15,7 @@
     <div class="post-card-caption">
       <span class="post-card-caption-user"><%= current_user.email %></span>
       <%= @post.caption %>
-      <%= link_to edit_post_path(@post), class: "post-edit" do %>
+      <%= link_to edit_post_path(@post), class: "post-edit", id: "edit_post" do %>
         <i class="far fa-edit"></i>
       <% end %>
     </div>
