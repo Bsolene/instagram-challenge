@@ -4,7 +4,7 @@
 <div class="wrapper">
   <div class="post-card">
     <div class="post-card-user">
-      <%= current_user.email %>
+      <%= @post.user.username %>
       <%= link_to post_path(@post), method: :delete, class: "post-delete", id: "delete_post" do %>
         <i class="far fa-times-circle"></i>
       <% end %>
@@ -13,7 +13,7 @@
       <%= image_tag(@post.image.url(:medium)) %>
     </div>
     <div class="post-card-caption">
-      <span class="post-card-caption-user"><%= current_user.email %></span>
+      <span class="post-card-caption-user"><%= @post.user.username %></span>
       <%= @post.caption %>
       <%= link_to edit_post_path(@post), class: "post-edit", id: "edit_post" do %>
         <i class="far fa-edit"></i>

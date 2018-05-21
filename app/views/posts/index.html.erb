@@ -7,14 +7,14 @@
     <div class="post-card">
       <%= link_to(post_path(post)) do %>
         <div class="post-card-user">
-          <%= post.user.email %>
+          <%= post.user.username %>
         </div>
         <div class="post-card-image">
           <%= image_tag(post.image.url(:medium)) %>
         </div>
       <% end %>
         <div class="post-card-caption">
-          <span class="post-card-caption-user"><%= current_user.email %></span>
+          <span class="post-card-caption-user"><%= post.user.username %></span>
           <%= post.caption %>
         </div>
     </div>
