@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
-  let(:max) { User.create(email: "max@test.com", password: "12345678", password_confirmation: "12345678") }
+  let(:max) { User.create(email: "max@test.com", username: "Max", password: "12345678", password_confirmation: "12345678") }
 
   before(:each) do
     sign_in max

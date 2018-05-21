@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature "Creating comments" do
-  let(:solene) { User.create(email: "solene@test.com", password: "12345678", password_confirmation: "12345678") }
-  let(:max) { User.create(email: "max@test.com", password: "12345678", password_confirmation: "12345678") }
+  let(:solene) { User.create(email: "solene@test.com", username: "Solene", password: "12345678", password_confirmation: "12345678") }
+  let(:max) { User.create(email: "max@test.com",username: "Max",  password: "12345678", password_confirmation: "12345678") }
 
   before do
     post = create(:post, user: solene, caption: 'Abs for days.')
