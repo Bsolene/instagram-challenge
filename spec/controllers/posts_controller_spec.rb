@@ -1,8 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
-  login_user
-  
+
+  let(:max) { User.create(email: "max@test.com", password: "12345678", password_confirmation: "12345678") }
+
+  before(:each) do
+    sign_in max
+  end
+
   describe 'GET #index' do
     it 'returns http success' do
       get :index
@@ -24,33 +29,33 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to render_template('new')
     end
   end
-  
+
   describe "POST #create" do
     it "creates a new Post" do
-      expect{ create(:post) }.to change(Post,:count).by(1)
+      expect{ create(:post, user: max) }.to change(Post,:count).by(1)
     end
   end
-  
-  let(:post) { create(:post) }
+
+  let(:post) { create(:post, user: max) }
 
   describe "GET #show" do
     it "returns http success" do
-      get :show, params: { id: post }
+      get :show, params: { id: post, user: max }
       expect(response).to have_http_status(:success)
     end
     it "renders the show template" do
-      get :show, params: { id: post }
+      get :show, params: { id: post, user: max }
       expect(response).to render_template("show")
     end
   end
 
   describe 'GET #edit' do
     it 'returns http success' do
-      get :edit, params: { id: post }
+      get :edit, params: { id: post, user: max }
       expect(response).to have_http_status(:success)
     end
     it 'renders the edit template' do
-      get :edit, params: { id: post }
+      get :edit, params: { id: post, user: max }
       expect(response).to render_template('edit')
     end
   end
@@ -66,9 +71,9 @@ RSpec.describe PostsController, type: :controller do
 
   describe "DELETE #destroy" do
     it "deletes the post and redirects" do
-      post = create(:post)
-      expect{ 
-        delete :destroy, params: { id: post }
+      post = create(:post, user: max)
+      expect{
+        delete :destroy, params: { id: post, user: max }
       }.to change(Post, :count).by(-1)
       expect(response).to be_redirect
     end

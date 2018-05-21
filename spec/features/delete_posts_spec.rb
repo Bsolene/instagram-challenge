@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 feature 'Deleting posts' do
-  let (:user) { create(:user, email: "bob@gmail.com", password: "mypassword", password_confirmation: "mypassword") }
+  let (:user) { create(:user) }
 
   before(:each) do
     create_user_and_log_in
   end
   background do
-    post = create(:post, user_id: user, caption: 'Abs for days.')
+    post = create(:post, user: user, caption: 'Abs for days.')
 
     visit '/'
 

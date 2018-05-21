@@ -1,13 +1,15 @@
 require 'rails_helper'
 
-
 feature "Creating comments" do
-  let (:user) { create(:user, email: "bob@gmail.com", password: "mypassword", password_confirmation: "mypassword") }
-  before(:each) do
-    create_user_and_log_in
+  let(:solene) { User.create(email: "solene@test.com", password: "12345678", password_confirmation: "12345678") }
+  let(:max) { User.create(email: "max@test.com", password: "12345678", password_confirmation: "12345678") }
+
+  before do
+    post = create(:post, user: solene, caption: 'Abs for days.')
   end
+
   background do
-    post = create(:post, user_id: user, caption: 'Abs for days.')
+    login_as(max, :scope => :user)
     visit '/'
     find(:xpath, "//a[contains(@href,'posts/1')]").click
   end
